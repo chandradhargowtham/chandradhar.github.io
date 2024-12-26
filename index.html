@@ -4,28 +4,32 @@
   <!-- we import arjs version without NFT but with marker + location based support -->
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
   <body style="margin : 0px; overflow: hidden;">
-    <a-scene embedded arjs>
+    <a-scene embedded arjs renderer="antialias: false; logarithmicDepthBuffer:true">
       <a-assets>
-          <video id="my-video" src="assets/vid.mp4" autoplay="true" muted="true" playsinline=""></video>
+          <video id="my-video" src="https://cdn.glitch.global/b7d9cd77-1de9-4796-95ec-554595ded35d/vid.mp4?v=1735240722884" autoplay="true" muted="true" playsinline=""></video>
         </a-assets>
       <a-marker preset="hiro">
         
         <!--<a-video src="https://cdn.glitch.global/b7d9cd77-1de9-4796-95ec-554595ded35d/vid.mp4?v=1735240722884" width="2" height="1" autoplay loop="true" rotation ="-90 0 0"></a-video>-->
-        
+        <!-- animation="property: rotation; to: 0 360 0; loop: true; dur: 0"-->
         
 
-        <a-entity geometry="primitive: box" material="src: #my-video" scale="2 .05 1"></a-entity>
+        <a-entity geometry="primitive: box" material="src: #my-video" scale="1.5 .05 1"></a-entity>
         
-        <a-light type="point" color="white" position="1 1 0" intensity="2"></a-light>
+        <a-light type="point" color="white" position="1.2 1 0" intensity="3"></a-light>
 
 
-        <a-entity
-          position=".3 .8 0"
-          rotation="90 0 0"
-          scale="3 3 3"
-          gltf-model="assets/iphone_14_pro.glb"
-          material="offset: 0.5 0.25; shader: flat; side: double;"
-        ></a-entity>
+        <a-entity 
+          position="1.1 .5 0"
+          rotation="-135 -45 40"
+          scale=".5 .5 .5"
+          gltf-model="ip12.glb"
+          material=" shader: flat "
+          opacity:1
+          
+        >
+         
+        </a-entity>
         
       </a-marker>
       <a-entity camera></a-entity>
