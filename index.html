@@ -5,29 +5,35 @@
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
   <body style="margin : 0px; overflow: hidden;">
     <a-scene embedded arjs>
+      <a-assets>
+          <video id="my-video" src="assets/vid.mp4" autoplay="true" muted="true" playsinline=""></video>
+        </a-assets>
       <a-marker preset="hiro">
-        <!-- we use cors proxy to avoid cross-origin problems -->
-        <!--
-          ⚠️⚠️⚠️
-          https://arjs-cors-proxy.herokuapp.com/ is now offline, Heroku has dismissed all his free plans from November 2022.
-          You need to host your own proxy and use it instead. The proxy is based on CORS Anywhere (see https://github.com/Rob--W/cors-anywhere).
-          ⚠️⚠️⚠️
-        -->
+        
+        <!--<a-video src="https://cdn.glitch.global/b7d9cd77-1de9-4796-95ec-554595ded35d/vid.mp4?v=1735240722884" width="2" height="1" autoplay loop="true" rotation ="-90 0 0"></a-video>-->
+        
+        
+
+        <a-entity geometry="primitive: box" material="src: #my-video" scale="2 .05 1"></a-entity>
+        
+        <a-light type="point" color="white" position="1 1 0" intensity="2"></a-light>
+
+
         <a-entity
-          position="0 0 0"
-          rotation="-45 0 0"
-          scale=".01 .01 .01"
-          gltf-model="assets/iphone_12_pro.glb"
+          position=".3 .8 0"
+          rotation="90 0 0"
+          scale="3 3 3"
+          gltf-model="assets/iphone_14_pro.glb"
+          material="offset: 0.5 0.25; shader: flat; side: double;"
         ></a-entity>
-        <!-- Default lighting injected by A-Frame. -->
-<a-entity light="type: ambient; color: #BBB"></a-entity>
-<a-entity light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity>
-        <!--<a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>-->
+        
       </a-marker>
       <a-entity camera></a-entity>
-      <a-assets>
-        <video id="vid" autoplay loop="true" src="assets/vid.mp4"></video>
-      </a-assets>
+      
     </a-scene>
   </body>
 </html>
+
+<script>
+const vid1 = document.querySelector('#my-video'); vid1.play()
+</script>
